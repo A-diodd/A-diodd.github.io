@@ -4,17 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>我的第一个小博客</title>
+  <title>线程没有工人，锁没有钥匙：一个底层洁癖者的硬件级拆解 | 我的第一个小博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="专注计算机底层技术，项目复盘的独立博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的第一个小博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="黑盒里的真相应用层说“线程是工人”，底层没有工人，只有寄存器的快照。 你的 CPU 核心物理上同一纳秒只能执行 4 条指令（4核）。所谓的“开启了 1000 个线程”，是操作系统内核在玩时间切片欺骗。 上下文切换：时钟中断的欺骗艺术 操作系统的时钟中断器每隔几毫秒触发一次硬件中断 内核强行剥夺当前正在运行的代码的控制权 把当前 CPU 寄存器的值（PC、SP、通用寄存器）拷贝到内存的 PCB 中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线程没有工人，锁没有钥匙：一个底层洁癖者的硬件级拆解">
+<meta property="og:url" content="http://example.com/2026/05/20/xian-cheng-mei-you-gong-ren/index.html">
 <meta property="og:site_name" content="我的第一个小博客">
-<meta property="og:description" content="专注计算机底层技术，项目复盘的独立博客">
+<meta property="og:description" content="黑盒里的真相应用层说“线程是工人”，底层没有工人，只有寄存器的快照。 你的 CPU 核心物理上同一纳秒只能执行 4 条指令（4核）。所谓的“开启了 1000 个线程”，是操作系统内核在玩时间切片欺骗。 上下文切换：时钟中断的欺骗艺术 操作系统的时钟中断器每隔几毫秒触发一次硬件中断 内核强行剥夺当前正在运行的代码的控制权 把当前 CPU 寄存器的值（PC、SP、通用寄存器）拷贝到内存的 PCB 中">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-20T03:47:44.000Z">
+<meta property="article:modified_time" content="2026-05-20T03:50:22.820Z">
 <meta property="article:author" content="wangyao">
-<meta property="article:tag" content="猛">
+<meta property="article:tag" content="并发">
+<meta property="article:tag" content="底层">
+<meta property="article:tag" content="CSAPP">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="我的第一个小博客" type="application/atom+xml">
@@ -76,9 +80,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-xian-cheng-mei-you-gong-ren" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-xian-cheng-mei-you-gong-ren" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/05/20/xian-cheng-mei-you-gong-ren/" class="article-date">
   <time class="dt-published" datetime="2026-05-20T03:47:44.000Z" itemprop="datePublished">2026-05-20</time>
@@ -95,8 +97,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/20/xian-cheng-mei-you-gong-ren/">线程没有工人，锁没有钥匙：一个底层洁癖者的硬件级拆解</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      线程没有工人，锁没有钥匙：一个底层洁癖者的硬件级拆解
     </h1>
   
 
@@ -144,100 +146,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/19/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-05-19T11:38:50.844Z" itemprop="datePublished">2026-05-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/19/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2026/05/19/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/19/hello-world/" data-id="cmpdj22jw000264u833tvdlz7" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-di-yi-pian-ji-shu-bi-ji" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/19/di-yi-pian-ji-shu-bi-ji/" class="article-date">
-  <time class="dt-published" datetime="2026-05-19T04:40:15.000Z" itemprop="datePublished">2026-05-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/19/di-yi-pian-ji-shu-bi-ji/">我的第一篇技术笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2026/05/19/di-yi-pian-ji-shu-bi-ji/" data-id="cmpdj22js000064u89hnne93z" data-title="我的第一篇技术笔记" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
