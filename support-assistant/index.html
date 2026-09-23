@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>支持助手可上传文件</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="back" href="/">返回博客</a>
+    <h1>支持助手</h1>
+    <p>可以上传的文件已经放在仓库的 <code>support-assistant/uploadable/</code> 目录。</p>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="rules-title">
+      <h2 id="rules-title">上传规则</h2>
+      <p id="rules-summary">正在读取规则…</p>
+      <ul id="rule-list"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="files-title">
+      <h2 id="files-title">仓库里的文件</h2>
+      <ul id="repo-files" class="file-list"></ul>
+      <button id="check-samples" type="button">载入这些文件并检查</button>
+      <p id="sample-status" class="status" role="status"></p>
+    </section>
+
+    <section class="card" aria-labelledby="upload-title">
+      <h2 id="upload-title">检查本地文件</h2>
+      <form id="upload-form">
+        <label class="drop" id="drop-zone" for="file-input">
+          <span>选择或拖入文件</span>
+          <input id="file-input" type="file" multiple>
+        </label>
+        <p class="hint">只在这台浏览器里检查类型和大小，不会上传到服务器。</p>
+      </form>
+      <ul id="results" class="file-list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

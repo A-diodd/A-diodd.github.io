@@ -1,0 +1,20 @@
+{
+  "assistant": "support-assistant",
+  "page": "/support-assistant/",
+  "limits": {
+    "maxFiles": 5,
+    "maxBytes": 10485760
+  },
+  "acceptedExtensions": [
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".webp",
+    ".txt",
+    ".log",
+    ".md",
+    ".json",
+    ".pdf"
+  ]
+}

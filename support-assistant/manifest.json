@@ -1,0 +1,54 @@
+{
+  "title": "支持助手可上传文件",
+  "maxFiles": 5,
+  "maxBytes": 10485760,
+  "groups": [
+    {
+      "label": "图片",
+      "kind": "image",
+      "extensions": [".png", ".jpg", ".jpeg", ".gif", ".webp"]
+    },
+    {
+      "label": "文本日志",
+      "kind": "text",
+      "extensions": [".txt", ".log"]
+    },
+    {
+      "label": "说明文档",
+      "kind": "text",
+      "extensions": [".md"]
+    },
+    {
+      "label": "JSON 上下文",
+      "kind": "text",
+      "extensions": [".json"]
+    },
+    {
+      "label": "PDF",
+      "kind": "pdf",
+      "extensions": [".pdf"]
+    }
+  ],
+  "files": [
+    {
+      "name": "screenshot.png",
+      "description": "问题截图示例"
+    },
+    {
+      "name": "issue-log.txt",
+      "description": "错误日志示例"
+    },
+    {
+      "name": "repro-steps.md",
+      "description": "复现步骤示例"
+    },
+    {
+      "name": "context.json",
+      "description": "环境与限制说明"
+    },
+    {
+      "name": "note.pdf",
+      "description": "补充说明 PDF"
+    }
+  ]
+}

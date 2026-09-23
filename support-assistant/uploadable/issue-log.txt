@@ -1,0 +1,8 @@
+2026-05-20 12:10:29 ERROR support-assistant upload rejected
+reason=unsupported_extension
+file=recording.mp4
+allowed=png,jpg,jpeg,gif,webp,txt,log,md,json,pdf
+
+2026-05-20 12:11:02 INFO support-assistant upload accepted
+file=issue-log.txt
+bytes=248
